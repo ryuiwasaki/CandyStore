@@ -7,3 +7,17 @@
 //
 
 import Foundation
+
+public func setReleaseInfo(releaseInfo:ReleaseInfo) {
+    
+    Manager.defaultManager().releaseInfo = releaseInfo
+}
+
+public func showInfoIfNeededInViewController(vc:UIViewController){
+    
+    Manager.defaultManager().showInfoIfNeededInViewController(vc)
+}
+
+public func reset() {
+    Manager.defaultManager().resetReleaseInfo()
+}
