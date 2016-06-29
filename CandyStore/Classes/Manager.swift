@@ -75,6 +75,13 @@ public struct ReleaseInfo : Equatable {
            return nil
         }
     }
+    
+    public func isSameVersion(versionString:String) -> Bool {
+        
+        let infoVersion = "\(majorVersion).\(minorVersion).\(maintenanceVersion)"
+        
+        return infoVersion == versionString
+    }
 }
 
 public func == (lhs:ReleaseInfo, rhs:ReleaseInfo) -> Bool {
@@ -107,6 +114,7 @@ public class Manager {
         return latestReleaseInfo() != nil && latestReleaseInfo() == releaseInfo
     }
     
+    
     func latestReleaseInfo() -> ReleaseInfo? {
         
         let majorVersion = NSUserDefaults.standardUserDefaults().integerForKey("ReleaseInfo_MajorVersion")
@@ -134,13 +142,17 @@ public class Manager {
             
         } else {
             
-            let format = alertTitleFormat ?? NSLocalizedString("Ver. %@ release notes", tableName: "ReleaseLocalized", comment: "")
-            let alert = UIAlertController(title: String(format: format, releaseInfo?.version ?? ""), message: releaseInfo?.notes, preferredStyle: UIAlertControllerStyle.Alert)
-            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: { (action) in
-                self.storeReleaseInfo()
-            }))
+            if let info = releaseInfo {
+                
+                let format = alertTitleFormat ?? NSLocalizedString("Ver. %@ release notes", tableName: "ReleaseLocalized", comment: "")
+                let alert = UIAlertController(title: String(format: format, info.version ?? ""), message: info.notes, preferredStyle: UIAlertControllerStyle.Alert)
+                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: { (action) in
+                    self.storeReleaseInfo()
+                }))
+                
+                vc.presentViewController(alert, animated: true, completion: nil)
+            }
             
-            vc.presentViewController(alert, animated: true, completion: nil)
         }
     }
 }
