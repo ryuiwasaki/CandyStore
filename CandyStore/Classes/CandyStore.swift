@@ -21,3 +21,7 @@ public func showInfoIfNeededInViewController(vc:UIViewController){
 public func reset() {
     Manager.defaultManager().resetReleaseInfo()
 }
+
+public func alertTitleFormat(format:String?) {
+    Manager.defaultManager().alertTitleFormat = format
+}

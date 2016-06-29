@@ -90,6 +90,7 @@ public class Manager {
         return sharedInstance
     }
     
+    var alertTitleFormat : String?
     var releaseInfo : ReleaseInfo?
     
     func resetReleaseInfo() {
@@ -133,7 +134,7 @@ public class Manager {
             
         } else {
             
-            let format = NSLocalizedString("Ver. %@ release notes", tableName: "ReleaseLocalized", comment: "")
+            let format = alertTitleFormat ?? NSLocalizedString("Ver. %@ release notes", tableName: "ReleaseLocalized", comment: "")
             let alert = UIAlertController(title: String(format: format, releaseInfo?.version ?? ""), message: releaseInfo?.notes, preferredStyle: UIAlertControllerStyle.Alert)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: { (action) in
                 self.storeReleaseInfo()
