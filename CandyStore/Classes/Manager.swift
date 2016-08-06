@@ -15,10 +15,10 @@ import Foundation
 
 public struct ReleaseInfo : Equatable {
     
-    let majorVersion : Int
-    let minorVersion : Int
-    let maintenanceVersion : Int
-    let notes : String
+    public let majorVersion : Int
+    public let minorVersion : Int
+    public let maintenanceVersion : Int
+    public let notes : String
     
     var version : String {
         return "\(majorVersion).\(minorVersion).\(maintenanceVersion)"
