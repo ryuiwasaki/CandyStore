@@ -8,12 +8,12 @@
 
 import Foundation
 
-public func setReleaseInfo(releaseInfo:ReleaseInfo) {
+public func setReleaseInfo(_ releaseInfo:ReleaseInfo) {
     
     Manager.defaultManager().releaseInfo = releaseInfo
 }
 
-public func showInfoIfNeededInViewController(vc:UIViewController){
+public func showInfoIfNeededInViewController(_ vc:UIViewController){
     
     Manager.defaultManager().showInfoIfNeededInViewController(vc)
 }
@@ -22,6 +22,6 @@ public func reset() {
     Manager.defaultManager().resetReleaseInfo()
 }
 
-public func alertTitleFormat(format:String?) {
+public func alertTitleFormat(_ format:String?) {
     Manager.defaultManager().alertTitleFormat = format
 }
