@@ -49,7 +49,7 @@ public struct ReleaseInfo : Equatable {
                 
                 for i in 1..<result.numberOfRanges {
                  
-                    let range = result.rangeAt(i)
+                    let range = result.range(at: i)
                     let valueStr = version.substring(with: version.characters.index(version.startIndex, offsetBy: range.location)..<version.characters.index(version.startIndex, offsetBy: NSMaxRange(range)))
                     if let value = Int(valueStr) {
                         values.append(value)
