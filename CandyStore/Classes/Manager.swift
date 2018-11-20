@@ -145,8 +145,8 @@ open class Manager {
             if let info = releaseInfo {
                 
                 let format = alertTitleFormat ?? NSLocalizedString("Ver. %@ release notes", tableName: "ReleaseLocalized", comment: "")
-                let alert = UIAlertController(title: String(format: format, info.version ), message: info.notes, preferredStyle: UIAlertControllerStyle.alert)
-                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { (action) in
+                let alert = UIAlertController(title: String(format: format, info.version ), message: info.notes, preferredStyle: UIAlertController.Style.alert)
+                alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: { (action) in
                     self.storeReleaseInfo()
                 }))
                 
