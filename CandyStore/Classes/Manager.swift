@@ -42,7 +42,7 @@ public struct ReleaseInfo : Equatable {
 
         let regex = try? NSRegularExpression(pattern: "([0-9]*).([0-9]*).([0-9]*)", options: NSRegularExpression.Options.caseInsensitive)
         
-        if let matches = regex?.matches(in: version, options: NSRegularExpression.MatchingOptions.withTransparentBounds, range: NSMakeRange(0, version.characters.count)) {
+        if let matches = regex?.matches(in: version, options: NSRegularExpression.MatchingOptions.withTransparentBounds, range: NSMakeRange(0, version.count)) {
             
             var values = [Int]()
             matches.forEach({ (result) in
@@ -50,7 +50,7 @@ public struct ReleaseInfo : Equatable {
                 for i in 1..<result.numberOfRanges {
                  
                     let range = result.range(at: i)
-                    let valueStr = version.substring(with: version.characters.index(version.startIndex, offsetBy: range.location)..<version.characters.index(version.startIndex, offsetBy: NSMaxRange(range)))
+                    let valueStr = version.substring(with: version.index(version.startIndex, offsetBy: range.location)..<version.index(version.startIndex, offsetBy: NSMaxRange(range)))
                     if let value = Int(valueStr) {
                         values.append(value)
                     }
