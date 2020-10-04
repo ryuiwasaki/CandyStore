@@ -1,0 +1,16 @@
+PODS:
+  - CandyStore (0.1.0)
+
+DEPENDENCIES:
+  - CandyStore (from `../`)
+
+EXTERNAL SOURCES:
+  CandyStore:
+    :path: ../
+
+SPEC CHECKSUMS:
+  CandyStore: fd9a87a0be77d9d4e3e44221eec5cc8e2fe659a5
+
+PODFILE CHECKSUM: d3ab40ed9b87a9db5a1b937364379be5bb398b58
+
+COCOAPODS: 1.0.0
